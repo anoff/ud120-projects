@@ -38,8 +38,8 @@ t1 = time()
 print("prediction accuracy: {}".format(clf.score(features_test, labels_test)))
 t2 = time()
 print("training time: {0}s ({1} data points), prediction time: {2}s ({3} data points)".format(round(t2-t0, 3), len(features_train), round(t2-t1, 3), len(features_test)))
-#prediction accuracy: 0.990898748578
-#training time: 106.471s (15820 data points), prediction time: 9.69s (1758 data points)
+pred = clf.predict(features_test)
+print(sum([1 for i in pred if i == 1]))
 #########################################################
 
 
