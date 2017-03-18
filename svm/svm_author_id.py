@@ -32,14 +32,14 @@ features_train = features_train[:len(features_train)/100]
 labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
-clf = svm.SVC(C=1.0, kernel='linear')
+clf = svm.SVC(C=10000, kernel='rbf')
 clf.fit(features_train, labels_train)
 t1 = time()
 print("prediction accuracy: {}".format(clf.score(features_test, labels_test)))
 t2 = time()
 print("training time: {0}s ({1} data points), prediction time: {2}s ({3} data points)".format(round(t2-t0, 3), len(features_train), round(t2-t1, 3), len(features_test)))
-#prediction accuracy: 0.884527872582
-#training time: 0.964s (158 data points), prediction time: 0.882s (1758 data points)
+#prediction accuracy: 0.892491467577
+#training time: 0.899s (158 data points), prediction time: 0.809s (1758 data points)
 #########################################################
 
 
