@@ -37,3 +37,10 @@
   * max: 1 as entropy can range from 0 (pure data) to 1 (evenly distributed data)
 * easy to understand how the data is split
 * limit tree to prevent overfitting
+
+## k nearest neighbors
+
+* builds groups of data points that represent a specific class
+* classification happens by checking surrounding classified points
+* majority vote determines the class of the new point
+* bigger `k_neighbors` makes it more robust/smooth
