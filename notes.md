@@ -25,8 +25,15 @@
   * if data is linearily separable on one of those features it is transformed back into the original 2D space
   * SVM is now non-linear in 2D space as inverse transformation of the new feature
   * default kernels available in most libs [1](http://scikit-learn.org/stable/modules/svm.html#kernel-functions)
-    * linear
-    * polynomial
-    * 
 * not too good on large/overlapping datasets > use naive bayes
+  * takes looong to train/test
 
+## decision trees
+
+* split dataset by recursively putting conditions onto the dataset
+* builds a tree of decisions `x > 3 && y < 5 && x > 8`
+* defining the minimum number of points to keep splitting for depends on # dataset
+* DTclassifier optimizes for information gain: `entropy(parent) - sum(entropy children)`
+  * max: 1 as entropy can range from 0 (pure data) to 1 (evenly distributed data)
+* easy to understand how the data is split
+* limit tree to prevent overfitting
