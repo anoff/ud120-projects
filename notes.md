@@ -2,6 +2,8 @@
 
 ## naive bayes [1](http://scikit-learn.org/stable/modules/naive_bayes.html) [2](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
 
+`accuracy(terrain): 0.88`
+
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/52bd0ca5938da89d7f9bf388dc7edcbd546c118e)
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/b0122d84d632cc399d2a49924797f37a7db53b0c)
 
@@ -14,6 +16,8 @@
 
 
 ## support vector machines
+
+`accuracy(terrain): 0.94`
 
 * basically splits x/y scatter data in two classes by drawing a line between them
 * maximizes the margin (space between boundary and nearest data points) for each set
@@ -30,6 +34,8 @@
 
 ## decision trees
 
+`accuracy(terrain): 0.912`
+
 * split dataset by recursively putting conditions onto the dataset
 * builds a tree of decisions `x > 3 && y < 5 && x > 8`
 * defining the minimum number of points to keep splitting for depends on # dataset
@@ -37,10 +43,38 @@
   * max: 1 as entropy can range from 0 (pure data) to 1 (evenly distributed data)
 * easy to understand how the data is split
 * limit tree to prevent overfitting
+* very fast in classifying
 
 ## k nearest neighbors
+
+`accuracy(terrain): 0.94`
 
 * builds groups of data points that represent a specific class
 * classification happens by checking surrounding classified points
 * majority vote determines the class of the new point
 * bigger `k_neighbors` makes it more robust/smooth
+* very fast classification
+* good for datasets without clear seperations
+* unpredictable/unexpected behavior in intersection of classes
+
+## random forest [1](https://en.wikipedia.org/wiki/Random_forest) [2](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+
+`accuracy(terrain): 0.92`
+
+* builds a bunch of decision trees
+* classification is done by averaging all classifications by the individual DT in the forest
+* averages out overfitted singular decision trees
+
+## adaboost (adaptive boosting)
+
+`accuracy(terrain): 0.92`
+
+* another ensemble learning method (like random forest)
+* takes multiple weak classifiers
+* differences to random forest
+  * specifically trains the weak classifiers so that each handles previously hard-to-classify datapoints well
+  * generates weighted output instead of strict average
+
+## overview
+
+[![](http://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001.png)](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py)
