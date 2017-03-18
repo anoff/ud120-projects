@@ -28,8 +28,8 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 
 # decrease training set size
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
 
 t0 = time()
 clf = svm.SVC(C=10000, kernel='rbf')
@@ -38,8 +38,8 @@ t1 = time()
 print("prediction accuracy: {}".format(clf.score(features_test, labels_test)))
 t2 = time()
 print("training time: {0}s ({1} data points), prediction time: {2}s ({3} data points)".format(round(t2-t0, 3), len(features_train), round(t2-t1, 3), len(features_test)))
-#prediction accuracy: 0.892491467577
-#training time: 0.899s (158 data points), prediction time: 0.809s (1758 data points)
+#prediction accuracy: 0.990898748578
+#training time: 106.471s (15820 data points), prediction time: 9.69s (1758 data points)
 #########################################################
 
 
