@@ -78,3 +78,8 @@
 ## overview
 
 [![](http://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001.png)](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html#sphx-glr-auto-examples-classification-plot-classifier-comparison-py)
+
+## regression
+
+* used for continous outputs (e.g. estimated house prices, weight)
+* linear regression as `y= m*x + c`
