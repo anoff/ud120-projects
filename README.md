@@ -83,3 +83,23 @@
 
 * used for continous outputs (e.g. estimated house prices, weight)
 * linear regression as `y= m*x + c`
+
+## outliers
+
+* outliers might be removed or selected depending on use case (e.g. anomaly detection)
+* to identify outliers:
+  * train a regression algorithm
+  * calculate each points error
+  * remove 10% (or more/less) with the highest error
+  * could be continued as long as there is a significant difference in errors visible
+
+## k means clustering
+
+* [visualization](http://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
+* assign and optimize loop
+  * create K start points in the 2D space
+  * assign each data point to the nearest cluster center
+  * optimize by moving the center so that the distance to all associated points is minimized
+  * re-assign, ..
+
+
