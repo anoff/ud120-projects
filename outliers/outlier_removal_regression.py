@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pickle
 
 from outlier_cleaner import outlierCleaner
-
+from sklearn.linear_model import LinearRegression
 
 ### load up some practice data with outliers in it
 ages = pickle.load( open("practice_outliers_ages.pkl", "r") )
@@ -25,16 +25,11 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 
 ### fill in a regression here!  Name the regression object reg so that
 ### the plotting code below works, and you can see what your regression looks like
+reg = LinearRegression()
+reg.fit(ages_train, net_worths_train)
 
-
-
-
-
-
-
-
-
-
+print("slope: {}".format(reg.coef_))
+print("score: {}".format(reg.score(ages_test, net_worths_test)))
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
@@ -82,3 +77,5 @@ if len(cleaned_data) > 0:
 else:
     print "outlierCleaner() is returning an empty list, no refitting to be done"
 
+print("cleaned slope: {}".format(reg.coef_))
+print("cleaned score: {}".format(reg.score(ages_test, net_worths_test)))

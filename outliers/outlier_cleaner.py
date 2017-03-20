@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-
 def outlierCleaner(predictions, ages, net_worths):
     """
         Clean away the 10% of points that have the largest
@@ -15,6 +14,8 @@ def outlierCleaner(predictions, ages, net_worths):
 
     ### your code goes here
 
-    
-    return cleaned_data
+    tuples = [(ages[i], net_worths[i], abs(predictions[i] - net_worths[i])) for i in range(len(predictions))]
+    ordered = sorted(tuples, key=lambda elm: elm[2][0])
+    total = len(ordered)
+    return ordered[0:int(total-1-0.1*total)]
 
